@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.ComponentModel.Design;
+using System.Diagnostics;
 
 namespace ConsoleApp_Library_Management_System
 {
@@ -18,28 +19,35 @@ namespace ConsoleApp_Library_Management_System
             ISBN[0] = "A0";
             Authors[0] = "Ghufran";
             borrowerNames[0] = "Ahlam";
-            availability[0] = true;
+            availability[0] = false;
             LastBookIndextracker++;
 
             titles[1] = "Math";
             ISBN[1] = "A1";
             Authors[1] = "Ahmed";
-            borrowerNames[1] = "Omar";
-            availability[0] = true;
+            borrowerNames[1] = "Aseel ";
+            availability[1] = false;
+            LastBookIndextracker++;
+
+            titles[2] = "food";
+            ISBN[2] = "A2";
+            Authors[2] = "fatima";
+            borrowerNames[2] = "";
+            availability[2] = true;
             LastBookIndextracker++;
 
             bool exit=false;
             
-            while(true)
+            while(!exit)
             {
                 Console.WriteLine("Welcome to Library ManagementSystem ");
                 Console.WriteLine("1.Add New Book");
                 Console.WriteLine("2.Borrow Book");
-                Console.WriteLine("Return Book");
-                Console.WriteLine("Search Book");
-                Console.WriteLine("List All Available Books");
-                Console.WriteLine("Transfer Book");
-                Console.WriteLine("Exit");
+                Console.WriteLine("3.Return Book");
+                Console.WriteLine("4.Search Book");
+                Console.WriteLine("5.List All Available Books");
+                Console.WriteLine("6.Transfer Book");
+                Console.WriteLine("7.Exit");
                 Console.WriteLine("Please select the option:");
                 int option =int.Parse(Console.ReadLine());
 
@@ -62,30 +70,88 @@ namespace ConsoleApp_Library_Management_System
                         break;
 
 
-
-
                         case 2:
+                        Console.WriteLine("Enter the title Book or ISBN");
+                        string keyBook = Console.ReadLine();
+                        
 
 
+                        //processing
+                        bool Bookavailability = false;
+                        for (int i = 0; i < 100; i++)
+                        {
+                            if (keyBook == titles[i] || keyBook == ISBN[i])
+                            {
+                                Bookavailability = true;
+                                if (availability[i] == true)
+                                {
+                                    Console.WriteLine("Enter Borrower Name:");
+                                    string BorrowerName=Console.ReadLine();
+                                    availability[i] = false;
+                                    Console.WriteLine("Book Borrowed Successfuly");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Book Borrowed already");
+                                }
+                                break;
 
-
-
+                            }
+                            
+                        }
+                        if(Bookavailability = false)
+                        {
+                            Console.WriteLine("sorry Book not found");
+                        }
                         break;
+
+
+                            
+                                    
+
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
                         case 3:
-                        break;
-                        case 4:
-                        break;
-                        case 5:
-                        break;
-                        case 6:
-                        break;
+                                        break;
+                                    case 4:
+                                        break;
+                                    case 5:
+                                        break;
+                                    case 6:
+                                        break;
 
-                }
+
+                                    case 7:
+                                        Console.WriteLine("Thank you for using the libarary System, press any key");
+
+                                        exit = true;
+                                        break;
+
+                                        if (exit == true)
+                                        {
+                                            Console.ReadLine();
+                                            Console.Clear();
+                                        }
+                                        break;
+
+                                    }
 
 
 
