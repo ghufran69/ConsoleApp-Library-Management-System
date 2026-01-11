@@ -25,7 +25,7 @@ namespace ConsoleApp_Library_Management_System
             titles[1] = "Math";
             ISBN[1] = "A1";
             Authors[1] = "Ahmed";
-            borrowerNames[1] = "Aseel ";
+            borrowerNames[1] = " ";
             availability[1] = false;
             LastBookIndextracker++;
 
@@ -99,37 +99,55 @@ namespace ConsoleApp_Library_Management_System
                             }
                             
                         }
-                        if(Bookavailability = false)
+                        if(Bookavailability == false)
                         {
                             Console.WriteLine("sorry Book not found");
                         }
                         break;
 
 
-                            
-                                    
-
-                            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                       
 
                         case 3:
-                                        break;
+                        Console.WriteLine("Enter the Book ISBN");
+                        string returnBook = Console.ReadLine();
+
+
+
+                        //processing
+                        bool BookAvailability = false;
+                        for (int i = 0; i < 100; i++)
+                        {
+                            if ( returnBook == ISBN[i])
+                            {
+                                BookAvailability = true;
+
+                                if (availability[i] == false)
+                                {
+                                    Console.WriteLine("Enter Borrower Name:");
+                                    string BorrowerName = Console.ReadLine();
+                                    availability[i] = true;
+                                    Console.WriteLine("Book return Successfuly");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("This book was not borrowed");
+                                }
+                                break;
+
+                            }
+
+                        }
+                        if (BookAvailability == false)
+                        {
+                            Console.WriteLine("sorry Book not found");
+                        }
+                        break;
+                        
+
+
+
+
                                     case 4:
                                         break;
                                     case 5:
