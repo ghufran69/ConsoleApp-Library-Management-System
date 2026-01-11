@@ -11,18 +11,21 @@ namespace ConsoleApp_Library_Management_System
             string[] ISBN = new string[100];
             string[] Authors = new string[100];
             string[] borrowerNames= new string[100];
+            bool[]availability=new bool[100];
             int LastBookIndextracker = -1;
 
             titles[0] = "sciences";
             ISBN[0] = "A0";
             Authors[0] = "Ghufran";
             borrowerNames[0] = "Ahlam";
+            availability[0] = true;
             LastBookIndextracker++;
 
-            titles[0] = "Math";
-            ISBN[0] = "A1";
-            Authors[0] = "Ahmed";
-            borrowerNames[0] = "Omar";
+            titles[1] = "Math";
+            ISBN[1] = "A1";
+            Authors[1] = "Ahmed";
+            borrowerNames[1] = "Omar";
+            availability[0] = true;
             LastBookIndextracker++;
 
             bool exit=false;
@@ -53,9 +56,8 @@ namespace ConsoleApp_Library_Management_System
                         //output
                         Console.WriteLine(" Add Book successfully");
                         Console.WriteLine(" Book ISBN :" + ISBN[LastBookIndextracker + 1]);
+                        availability[LastBookIndextracker + 1] = true;
                         LastBookIndextracker++;
-
-
 
                         break;
 
@@ -63,6 +65,11 @@ namespace ConsoleApp_Library_Management_System
 
 
                         case 2:
+
+
+
+
+
                         break;
 
 
