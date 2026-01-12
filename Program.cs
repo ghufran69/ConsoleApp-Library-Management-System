@@ -28,7 +28,7 @@ namespace ConsoleApp_Library_Management_System
             borrowerNames[1] = " ";
             availability[1] = false;
             LastBookIndextracker++;
-
+             
             titles[2] = "food";
             ISBN[2] = "A2";
             Authors[2] = "fatima";
@@ -128,6 +128,7 @@ namespace ConsoleApp_Library_Management_System
                                     string BorrowerName = Console.ReadLine();
                                     availability[i] = true;
                                     Console.WriteLine("Book return Successfuly");
+                                    borrowerNames[i] = " ";
                                 }
                                 else
                                 {
@@ -146,10 +147,13 @@ namespace ConsoleApp_Library_Management_System
                         
 
 
+                       case 4:
+                        Console.WriteLine(""
+                       break;
 
 
-                                    case 4:
-                                        break;
+
+
                                     case 5:
                                         break;
                                     case 6:
