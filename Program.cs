@@ -183,10 +183,28 @@ namespace ConsoleApp_Library_Management_System
                         break;
 
 
+                       case 5:
+                        bool BookFound = false;
+                        for( int i = 0; i<100;i++)
+                        {
+                            if (availability[i]==true)
+                            {
+                                BookFound = true;
+                                
+                                Console.WriteLine("the available book is " + titles[i]);
+                                
+                            }
+
+                        }
+                        break;
+                        if(BookFound==false)
+                        {
+                            Console.WriteLine("the book not found");
+                        }
 
 
-                                    case 5:
-                                        break;
+
+
                                     case 6:
                                         break;
 
