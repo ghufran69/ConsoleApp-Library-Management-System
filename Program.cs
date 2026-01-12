@@ -192,7 +192,8 @@ namespace ConsoleApp_Library_Management_System
                                 BookFound = true;
                                 
                                 Console.WriteLine("the available book is " + titles[i]);
-                                
+                                Console.WriteLine("the Author book is " + Authors[i]);
+
                             }
 
                         }
@@ -205,8 +206,16 @@ namespace ConsoleApp_Library_Management_System
 
 
 
-                                    case 6:
-                                        break;
+                   case 6:
+
+
+
+
+
+                    break;
+
+
+
 
 
                                     case 7:
