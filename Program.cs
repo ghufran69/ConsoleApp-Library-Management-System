@@ -148,8 +148,39 @@ namespace ConsoleApp_Library_Management_System
 
 
                        case 4:
-                        Console.WriteLine(""
-                       break;
+                        Console.WriteLine("Enter the title Book or ISBN");
+                        string searchBook= Console.ReadLine();
+
+                        bool SearchBookAvailability = false;
+                        for(int i = 0; i<100; i++)
+                        {
+                            if( searchBook == ISBN[i] || searchBook == titles[i])
+                            {
+                                SearchBookAvailability = true;
+                                Console.WriteLine(" the book details :");
+                                Console.WriteLine(" titles :" + titles[i]);
+                                Console.WriteLine(" Authors :" + Authors[i]);
+                                Console.WriteLine(" ISBN Book :" + ISBN[i]);
+
+                                if (availability[i]==true)
+                                {
+                                    Console.WriteLine(" this book is available");
+                                    
+                                }
+                                else
+                                {
+                                    Console.WriteLine("this book is not available");
+                                }
+                                break;
+                                if (BookAvailability = false) ;
+                                {
+                                    Console.WriteLine("the book is not found");
+                                }
+                            }
+                        }
+
+
+                        break;
 
 
 
