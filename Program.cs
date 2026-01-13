@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.Design;
+﻿using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Diagnostics;
+using System.Linq;
 
 namespace ConsoleApp_Library_Management_System
 {
@@ -51,11 +53,11 @@ namespace ConsoleApp_Library_Management_System
                 Console.WriteLine("Please select the option:");
                 int option =int.Parse(Console.ReadLine());
 
-                switch(option)
+                switch (option)
                 {
                     case 1:
                         Console.WriteLine("Enter the title :");
-                        titles[LastBookIndextracker+1]=Console.ReadLine(); 
+                        titles[LastBookIndextracker + 1] = Console.ReadLine();
 
                         Console.WriteLine("Enter Author :");
                         Authors[LastBookIndextracker + 1] = Console.ReadLine();
@@ -70,10 +72,10 @@ namespace ConsoleApp_Library_Management_System
                         break;
 
 
-                        case 2:
+                    case 2:
                         Console.WriteLine("Enter the title Book or ISBN");
                         string keyBook = Console.ReadLine();
-                        
+
 
 
                         //processing
@@ -86,7 +88,7 @@ namespace ConsoleApp_Library_Management_System
                                 if (availability[i] == true)
                                 {
                                     Console.WriteLine("Enter Borrower Name:");
-                                    string BorrowerName=Console.ReadLine();
+                                    borrowerNames[i] = Console.ReadLine();
                                     availability[i] = false;
                                     Console.WriteLine("Book Borrowed Successfuly");
                                 }
@@ -97,18 +99,18 @@ namespace ConsoleApp_Library_Management_System
                                 break;
 
                             }
-                            
+
                         }
-                        if(Bookavailability == false)
+                        if (Bookavailability == false)
                         {
                             Console.WriteLine("sorry Book not found");
                         }
                         break;
 
 
-                       
 
-                        case 3:
+
+                    case 3:
                         Console.WriteLine("Enter the Book ISBN");
                         string returnBook = Console.ReadLine();
 
@@ -118,7 +120,7 @@ namespace ConsoleApp_Library_Management_System
                         bool BookAvailability = false;
                         for (int i = 0; i < 100; i++)
                         {
-                            if ( returnBook == ISBN[i])
+                            if (returnBook == ISBN[i])
                             {
                                 BookAvailability = true;
 
@@ -144,17 +146,17 @@ namespace ConsoleApp_Library_Management_System
                             Console.WriteLine("sorry Book not found");
                         }
                         break;
-                        
 
 
-                       case 4:
+
+                    case 4:
                         Console.WriteLine("Enter the title Book or ISBN");
-                        string searchBook= Console.ReadLine();
+                        string searchBook = Console.ReadLine();
 
                         bool SearchBookAvailability = false;
-                        for(int i = 0; i<100; i++)
+                        for (int i = 0; i < 100; i++)
                         {
-                            if( searchBook == ISBN[i] || searchBook == titles[i])
+                            if (searchBook == ISBN[i] || searchBook == titles[i])
                             {
                                 SearchBookAvailability = true;
                                 Console.WriteLine(" the book details :");
@@ -162,10 +164,10 @@ namespace ConsoleApp_Library_Management_System
                                 Console.WriteLine(" Authors :" + Authors[i]);
                                 Console.WriteLine(" ISBN Book :" + ISBN[i]);
 
-                                if (availability[i]==true)
+                                if (availability[i] == true)
                                 {
                                     Console.WriteLine(" this book is available");
-                                    
+
                                 }
                                 else
                                 {
@@ -183,14 +185,14 @@ namespace ConsoleApp_Library_Management_System
                         break;
 
 
-                       case 5:
+                    case 5:
                         bool BookFound = false;
-                        for( int i = 0; i<100;i++)
+                        for (int i = 0; i < 100; i++)
                         {
-                            if (availability[i]==true)
+                            if (availability[i] == true)
                             {
                                 BookFound = true;
-                                
+
                                 Console.WriteLine("the available book is " + titles[i]);
                                 Console.WriteLine("the Author book is " + Authors[i]);
 
@@ -198,7 +200,7 @@ namespace ConsoleApp_Library_Management_System
 
                         }
                         break;
-                        if(BookFound==false)
+                        if (BookFound == false)
                         {
                             Console.WriteLine("the book not found");
                         }
@@ -206,13 +208,74 @@ namespace ConsoleApp_Library_Management_System
 
 
 
-                   case 6:
+                    case 6:
+                        Console.Write("Enter first borrower name:");
+                        string firstBorrower = Console.ReadLine();
 
 
+                        Console.Write("Enter second borrower name:");
+                        string secondBorrower = Console.ReadLine();
 
 
+                        bool firstBorrowerFound = false;
+                        int firstBorrowerIndex = 0;
 
-                    break;
+                        for (int i = 0; i <100; i++)
+                        {
+                            if (firstBorrower == borrowerNames[i])
+                            {
+                                firstBorrowerIndex = i; // 
+
+
+                                firstBorrowerFound = true;
+                                break;
+
+                            }
+                        }
+                        if (firstBorrowerFound == false)
+                        {
+                            Console.WriteLine("current borrower name not found");
+                        }
+                        else
+                        {
+                            bool secondBorrowerFound = false;
+                            int secondBorrowerIndex = 0;
+                            for (int i = 0; i < 100; i++)
+                            {
+                                if (secondBorrower == borrowerNames[i])
+                                {
+                                    secondBorrowerIndex = i;//مكان / رقم تواجد الشخص التانى
+
+                                    secondBorrowerFound = true;
+                                    break;
+
+                                }
+                            }
+                            if (secondBorrowerFound == false)
+                            {
+                                Console.WriteLine("New borrower name not found");
+                            }
+                            else
+                            {
+
+                                string temp = "";
+
+                                temp = borrowerNames[firstBorrowerIndex];
+
+                                borrowerNames[firstBorrowerIndex] = borrowerNames[secondBorrowerIndex];
+
+                                borrowerNames[secondBorrowerIndex]= temp;
+
+                                Console.WriteLine("Borrower transfer completed successfully");
+                                Console.WriteLine("Borrower updated from " + firstBorrower + " to " + secondBorrower);
+                            }
+
+                        
+                        }
+
+                
+
+                            break;
 
 
 
