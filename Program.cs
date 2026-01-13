@@ -287,14 +287,14 @@ namespace ConsoleApp_Library_Management_System
                                         exit = true;
                                         break;
 
-                                        if (exit == true)
-                                        {
-                                            Console.ReadLine();
-                                            Console.Clear();
+                                       if (exit == true)
+                                       {
+                                       Console.ReadLine();
+                                       Console.Clear();
                                         }
-                                        break;
+                                       break;
 
-                                    }
+                                      }
 
 
 
