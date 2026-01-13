@@ -14,27 +14,31 @@ namespace ConsoleApp_Library_Management_System
             string[] ISBN = new string[100];
             string[] Authors = new string[100];
             string[] borrowerNames= new string[100];
+            string[] Categories = new string[100];
             bool[]availability=new bool[100];
             int LastBookIndextracker = -1;
 
-            titles[0] = "sciences";
+            titles[0] = "java";
             ISBN[0] = "A0";
             Authors[0] = "Ghufran";
             borrowerNames[0] = "Ahlam";
+            Categories[0] = "computer";
             availability[0] = false;
             LastBookIndextracker++;
 
-            titles[1] = "Math";
+            titles[1] = "diffrential";
             ISBN[1] = "A1";
             Authors[1] = "Ahmed";
             borrowerNames[1] = " ";
+            Categories[1] = "math";
             availability[1] = false;
             LastBookIndextracker++;
              
-            titles[2] = "food";
+            titles[2] = "csharb";
             ISBN[2] = "A2";
             Authors[2] = "fatima";
             borrowerNames[2] = "";
+            Categories[2] = "computer";
             availability[2] = true;
             LastBookIndextracker++;
 
@@ -49,13 +53,18 @@ namespace ConsoleApp_Library_Management_System
                 Console.WriteLine("4.Search Book");
                 Console.WriteLine("5.List All Available Books");
                 Console.WriteLine("6.Transfer Book");
-                Console.WriteLine("7.Exit");
+                Console.WriteLine("7.Search Books by Category");
+                Console.WriteLine("8.Exit");
                 Console.WriteLine("Please select the option:");
                 int option =int.Parse(Console.ReadLine());
 
                 switch (option)
                 {
                     case 1:
+
+                        Console.WriteLine("Enter the Categories :");
+                        Categories[LastBookIndextracker + 1] = Console.ReadLine();
+
                         Console.WriteLine("Enter the title :");
                         titles[LastBookIndextracker + 1] = Console.ReadLine();
 
@@ -174,7 +183,7 @@ namespace ConsoleApp_Library_Management_System
                                     Console.WriteLine("this book is not available");
                                 }
                                 break;
-                                if (BookAvailability = false) ;
+                                if (BookAvailability = false) 
                                 {
                                     Console.WriteLine("the book is not found");
                                 }
@@ -244,8 +253,7 @@ namespace ConsoleApp_Library_Management_System
                             {
                                 if (secondBorrower == borrowerNames[i])
                                 {
-                                    secondBorrowerIndex = i;//مكان / رقم تواجد الشخص التانى
-
+                                    secondBorrowerIndex = i;
                                     secondBorrowerFound = true;
                                     break;
 
@@ -277,11 +285,46 @@ namespace ConsoleApp_Library_Management_System
 
                             break;
 
+                    case 7:
+                        Console.WriteLine("Enter the Category:");
+                        string categoriesSearch = Console.ReadLine();
+
+                        bool searchBookAvailability = false;
+
+                        for (int i = 0; i <100; i++)
+                        {
+                            if (categoriesSearch == Categories[i])
+                            {
+                                searchBookAvailability = true;
+
+                                Console.WriteLine("Book Details:");
+                                Console.WriteLine("Category: " + Categories[i]);
+                                Console.WriteLine("Title: " + titles[i]);
+                                Console.WriteLine("Author: " + Authors[i]);
+                                Console.WriteLine("ISBN: " + ISBN[i]);
+
+                                if (availability[i] == true)
+                                {
+                                    Console.WriteLine("Status: Available");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Status: Borrowed");
+                                }
+
+                                Console.WriteLine(" ");
+                            }
+                        }   
+                        if (searchBookAvailability==false)
+                        {
+                            Console.WriteLine("No books found in this category");
+                        }
+
+                        break;
 
 
 
-
-                                    case 7:
+                    case 8:
                                         Console.WriteLine("Thank you for using the libarary System, press any key");
 
                                         exit = true;
