@@ -17,6 +17,7 @@ namespace ConsoleApp_Library_Management_System
             string[] Categories = new string[100];
             bool[]availability=new bool[100];
             int LastBookIndextracker = -1;
+            int[] borrowercount=new int[100];
 
             titles[0] = "java";
             ISBN[0] = "A0";
@@ -98,6 +99,8 @@ namespace ConsoleApp_Library_Management_System
                                 {
                                     Console.WriteLine("Enter Borrower Name:");
                                     borrowerNames[i] = Console.ReadLine();
+                                    borrowercount[i]++;
+
                                     availability[i] = false;
                                     Console.WriteLine("Book Borrowed Successfuly");
                                 }
