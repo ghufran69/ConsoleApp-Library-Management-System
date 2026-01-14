@@ -18,6 +18,7 @@ namespace ConsoleApp_Library_Management_System
             bool[]availability=new bool[100];
             int LastBookIndextracker = -1;
             int[] borrowercount=new int[100];
+            double[] lateFees = new double[100]; // NEW
 
             titles[0] = "java";
             ISBN[0] = "A0";
@@ -25,6 +26,8 @@ namespace ConsoleApp_Library_Management_System
             borrowerNames[0] = "Ahlam";
             Categories[0] = "computer";
             availability[0] = false;
+            lateFees[0] = 0; // NEW
+            borrowercount[0] = 5; // NEW
             LastBookIndextracker++;
 
             titles[1] = "diffrential";
@@ -33,6 +36,9 @@ namespace ConsoleApp_Library_Management_System
             borrowerNames[1] = " ";
             Categories[1] = "math";
             availability[1] = false;
+            lateFees[1] = 0; // NEW
+            borrowercount[0] = 8; // NEW
+
             LastBookIndextracker++;
              
             titles[2] = "csharb";
@@ -41,6 +47,9 @@ namespace ConsoleApp_Library_Management_System
             borrowerNames[2] = "";
             Categories[2] = "computer";
             availability[2] = true;
+            lateFees[2] = 0; // NEW
+            borrowercount[0] = 3; // NEW
+
             LastBookIndextracker++;
 
             bool exit=false;
@@ -54,8 +63,10 @@ namespace ConsoleApp_Library_Management_System
                 Console.WriteLine("4.Search Book");
                 Console.WriteLine("5.List All Available Books");
                 Console.WriteLine("6.Transfer Book");
-                Console.WriteLine("7.Search Books by Category");
-                Console.WriteLine("8.Exit");
+                Console.WriteLine("7. View Most Popular Books");
+                Console.WriteLine("8. Search Books by Category"); // NEW
+                Console.WriteLine("9. Calculate Total Late Fees"); // NEW
+                Console.WriteLine("10. Exit");
                 Console.WriteLine("Please select the option:");
                 int option =int.Parse(Console.ReadLine());
 
@@ -111,7 +122,7 @@ namespace ConsoleApp_Library_Management_System
                                 break;
 
                             }
-
+   
                         }
                         if (Bookavailability == false)
                         {
