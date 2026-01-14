@@ -350,13 +350,13 @@ namespace ConsoleApp_Library_Management_System
 
 
 
-                    case 8:
+                    case 8://New
                         Console.WriteLine("Enter the Category:");
                         string categoriesSearch = Console.ReadLine();
 
                         bool searchBookAvailability = false;
 
-                        for (int i = 0; i <100; i++)
+                        for (int i = 0; i < 100; i++)
                         {
                             if (categoriesSearch == Categories[i])
                             {
@@ -379,8 +379,8 @@ namespace ConsoleApp_Library_Management_System
 
                                 Console.WriteLine(" ");
                             }
-                        }   
-                        if (searchBookAvailability==false)
+                        }
+                        if (searchBookAvailability == false)
                         {
                             Console.WriteLine("No books found in this category");
                         }
