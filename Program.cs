@@ -158,21 +158,37 @@ namespace ConsoleApp_Library_Management_System
 
                                 if (availability[i] == false)
                                 {
-                                    Console.WriteLine("Enter Borrower Name:");
-                                    string BorrowerName = Console.ReadLine();
+                                    Console.Write("Is the book returned late? (yes/no): "); // NEW
+                                    string isLate = Console.ReadLine().ToLower();
+
+                                    if (isLate == "yes")
+                                    {
+                                        Console.Write("Enter number of days late: "); // NEW
+                                        int daysLate = int.Parse(Console.ReadLine());
+                                        double feePerDay = 0.5;
+                                        lateFees[i] = daysLate * feePerDay; // NEW - Calculate late fee
+
+                                        Console.WriteLine("Late fee calculated: " + lateFees[i] + " OMR"); // NEW
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Book returned on time"); // NEW
+                                        lateFees[i] = 0;
+                                    }
+                                    borrowerNames[i] = "";
                                     availability[i] = true;
-                                    Console.WriteLine("Book return Successfuly");
-                                    borrowerNames[i] = " ";
+
+                                    Console.WriteLine("Book returned successfully!");
                                 }
                                 else
                                 {
                                     Console.WriteLine("This book was not borrowed");
                                 }
+
                                 break;
-
                             }
-
                         }
+
                         if (BookAvailability == false)
                         {
                             Console.WriteLine("sorry Book not found");
