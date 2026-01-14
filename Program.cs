@@ -88,6 +88,13 @@ namespace ConsoleApp_Library_Management_System
                         Console.WriteLine(" Add Book successfully");
                         Console.WriteLine(" Book ISBN :" + ISBN[LastBookIndextracker + 1]);
                         availability[LastBookIndextracker + 1] = true;
+                        borrowerNames[LastBookIndextracker + 1] = "";
+                        
+                        lateFees[LastBookIndextracker + 1] = 0; // NEW
+                        borrowercount[LastBookIndextracker + 1] = 0; // NEW
+
+
+
                         LastBookIndextracker++;
 
                         break;
