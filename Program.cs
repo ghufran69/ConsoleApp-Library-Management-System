@@ -118,14 +118,16 @@ namespace ConsoleApp_Library_Management_System
                                     Console.WriteLine("Enter Borrower Name:");
                                     borrowerNames[i] = Console.ReadLine();
                                     borrowercount[i]++;
-
+                                    lateFees[i] = 0;
                                     availability[i] = false;
                                     Console.WriteLine("Book Borrowed Successfuly");
+                                    Console.WriteLine("This book has been borrowed " + borrowercount[i] + " times"); // NEW
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Book Borrowed already");
-                                }
+                                    Console.WriteLine("Book Borrowed already by :"+ borrowerNames[i]);
+                                } 
+
                                 break;
 
                             }
