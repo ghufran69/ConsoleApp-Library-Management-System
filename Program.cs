@@ -211,7 +211,7 @@ namespace ConsoleApp_Library_Management_System
                                 Console.WriteLine(" titles :" + titles[i]);
                                 Console.WriteLine(" Authors :" + Authors[i]);
                                 Console.WriteLine(" ISBN Book :" + ISBN[i]);
-
+                                Console.WriteLine("Times Borrowed: " + borrowerNames[i]); // NEW
                                 if (availability[i] == true)
                                 {
                                     Console.WriteLine(" this book is available");
@@ -220,6 +220,7 @@ namespace ConsoleApp_Library_Management_System
                                 else
                                 {
                                     Console.WriteLine("this book is not available");
+                                    Console.WriteLine("Current Borrower: " + borrowerNames[i]);
                                 }
                                 break;
                                 if (BookAvailability = false) 
