@@ -37,7 +37,7 @@ namespace ConsoleApp_Library_Management_System
             Categories[1] = "math";
             availability[1] = false;
             lateFees[1] = 0; // NEW
-            borrowercount[0] = 8; // NEW
+            borrowercount[1] = 8; // NEW
 
             LastBookIndextracker++;
              
@@ -48,7 +48,7 @@ namespace ConsoleApp_Library_Management_System
             Categories[2] = "computer";
             availability[2] = true;
             lateFees[2] = 0; // NEW
-            borrowercount[0] = 3; // NEW
+            borrowercount[2] = 3; // NEW
 
             LastBookIndextracker++;
 
@@ -325,7 +325,32 @@ namespace ConsoleApp_Library_Management_System
 
                             break;
 
-                    case 7:
+
+                    case 7:// NEW - View Most Popular Books
+                        Console.WriteLine("Most Popular Books:");
+                        Console.WriteLine("---");
+                        for(int count= 100; count>=0; count--)
+                        {
+                            for (int i = 0; i <= LastBookIndextracker; i++)
+                            {
+                                if (borrowercount[i] == count)
+                                {
+                                    Console.WriteLine("ISBN: " + ISBN[i] + " | Title: " + titles[i] + " | Author: " + Authors[i] + " | Category: " + Categories[i] + " | Times Borrowed: " + borrowercount[i]);
+                                }
+
+                            
+                            }
+                        }
+
+
+
+
+
+                        break;
+
+
+
+                    case 8:
                         Console.WriteLine("Enter the Category:");
                         string categoriesSearch = Console.ReadLine();
 
@@ -364,7 +389,7 @@ namespace ConsoleApp_Library_Management_System
 
 
 
-                    case 8:
+                    case 10:
                                         Console.WriteLine("Thank you for using the libarary System, press any key");
 
                                         exit = true;
