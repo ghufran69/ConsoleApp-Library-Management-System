@@ -65,8 +65,7 @@ namespace ConsoleApp_Library_Management_System
                 Console.WriteLine("6.Transfer Book");
                 Console.WriteLine("7. View Most Popular Books");
                 Console.WriteLine("8. Search Books by Category"); // NEW
-                Console.WriteLine("9. Calculate Total Late Fees"); // NEW
-                Console.WriteLine("10. Exit");
+                Console.WriteLine("9. Exit");
                 Console.WriteLine("Please select the option:");
                 int option =int.Parse(Console.ReadLine());
 
@@ -389,7 +388,7 @@ namespace ConsoleApp_Library_Management_System
 
 
 
-                    case 10:
+                    case 9:
                                         Console.WriteLine("Thank you for using the libarary System, press any key");
 
                                         exit = true;
